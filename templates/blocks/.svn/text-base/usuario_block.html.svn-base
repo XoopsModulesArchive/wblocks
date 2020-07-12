@@ -1,0 +1,219 @@
+<table border="0" width="100%">
+	<tr>
+		<td>
+		<table border="0" width="100%">
+			<tr>
+				<td align="center"><{$block.idioma_bienvenido}></td>
+			</tr>
+            <{if $xoops_isuser}>
+
+            <{if $block.veravatar == 1 }>
+			<tr>
+                <{if  $block.avatar_usuario != 'blank.gif' }>
+                <td align="center"><a href="<{$xoops_url}>/modules/profile/edituser.php?op=avatarform" alt="<{$block.idioma_cambiaravatar}>">
+                <img src="<{$xoops_url}>/uploads/<{$block.avatar_usuario}>" /></a></td>
+                <{else}>
+                <td align="center"><a href="<{$xoops_url}>/modules/profile/edituser.php?op=avatarform">
+                <img src="<{$xoops_url}>/modules/wblocks/images/sin_avatar.png" alt="<{$block.idioma_cambiaravatar}>" title="<{$block.idioma_cambiaravatar}>" /></a></td>
+                <{/if}>
+			</tr>
+            <{/if}>
+
+            <tr>
+                <td align="center"><B><{$block.usuario}></B></td>
+            </tr>
+
+			<{else}>
+			<tr>
+                <td align="center"><a href="<{$xoops_url}>/register.php">
+                <img src="<{$xoops_url}>/modules/wblocks/images/registrate.png" alt="<{$block.idioma_registratedsc}>" title="<{$block.idioma_registratedsc}>"/></a></td>
+			</tr>
+    		<{/if}>
+
+			<{if $xoops_isuser}>
+			<{if $block.veravatar == 1}>
+			<tr>
+				<td align="center"><img src="<{$xoops_url}>/uploads/<{$block.rangoimagen}>"></td>
+			</tr>
+			<tr>
+				<td align="center"><{$block.rangotitulo}></td>
+			</tr>
+			<{/if}>
+			<{/if}>
+		
+		</table>
+        <br />
+		<{if $xoops_isuser}>
+		<table border="0" width="100%">
+			<tr>
+				<td align="center" style="height:20px; vertical-align:middle; background-image:url(<{$xoops_url}>/modules/wblocks/images/fondo.gif);" >
+                <{$block.idioma_menuusuario}></td>
+			</tr>
+		</table>
+		<table border="0" width="100%">
+			<tr>
+				<td id="usermenu">
+                <a href="<{$xoops_url}>/user.php">
+                <img src="<{$block.img_perfilusuario}>" alt="" align="left">&nbsp;<{$block.idioma_perfilusuario}></a>
+				<{if $block.mensajesnumero > 0}>
+                <a href="<{$xoops_url}>/modules/pm" class="highlight">
+                <img src="<{$block.img_mensajesnuevos}>" alt="" align="left">&nbsp;<{$block.idioma_mensajesnuevos}>
+                &nbsp;(<span style="color:#ff0000; font-weight: bold;"><{$block.mensajesnumero}></span>)</a>
+				<{else}>
+                <a href="<{$xoops_url}>/modules/pm">
+                <img src="<{$block.img_mensajes}>" alt="" align="left" >&nbsp;<{$block.idioma_mensajes}></a>
+				<{/if}>
+                <a href="<{$xoops_url}>/notifications.php">
+                <img src="<{$block.img_notificaciones}>" alt="" align="left">&nbsp;<{$block.idioma_notificaciones}></a>
+				<a href="<{$xoops_url}>/user.php?op=logout">
+                <img src="<{$block.img_desconectar}>" alt="" align="left">&nbsp;<{$block.idioma_desconectar}></a>
+				<{if $xoops_isadmin}>
+	        	<a href="<{$xoops_url}>/admin.php">
+                <img src="<{$block.img_administracion}>" alt="" align="left">&nbsp;<{$block.idioma_administracion}></a>
+				<{/if}>
+                </td>
+			</tr>
+		</table>
+		<{else}>
+		<table border="0" width="100%">
+			<tr>
+				<td align="center" style="height:20px; vertical-align:middle; background-image:url(<{$xoops_url}>/modules/wblocks/images/fondo.gif);" >
+				<{$block.idioma_login}></td>
+			</tr>
+			
+		</table>
+		<form action="<{$xoops_url}>/user.php" method="post">
+		<table border="0" width="100%" cellspacing="6" cellpadding="0" >
+			<tr>
+				<td align="left">
+				<input type="text" name="uname" size="14" value="<{$block.idioma_nombre}>" onblur="if(this.value=='')this.value='<{$block.idioma_nombre}>';" onfocus="if(this.value=='<{$block.idioma_nombre}>')this.value='';"  maxlength="60" /><br />
+                </td>
+            </tr>
+			<tr>
+				<td align="left">
+                <input type="password" name="pass" size="14" value="<{$block.idioma_nombre}>" onblur="if(this.value=='')this.value='<{$block.idioma_nombre}>';" onfocus="if(this.value=='<{$block.idioma_nombre}>')this.value='';" maxlength="32"  />
+                </td>
+            </tr>
+            <tr>
+            	<td>
+                 <{if isset($block.idioma_recuerdame)}>
+                <input type="checkbox" name="rememberme" value="On" class ="formButton" checked /><{$block.idioma_recuerdame}><br />
+                <{/if}>
+                </td>
+            </tr>
+            <tr>
+            	<td>
+                <input type="hidden" name="xoops_redirect" value="<{$xoops_requesturi}>" />
+                <input type="hidden" name="op" value="login" />
+                <input type="submit" value="<{$block.idioma_entrar}>" />
+                <{$block.sslloginlink}></p>
+                </p>
+                <p><{$block.recuperarpass}></p>
+				</td>
+			</tr>
+		</table>
+        </form>
+		
+		<{/if}>
+
+		<br />
+
+		<table border="0" width="100%">
+			<tr>
+				<td align="center" style="height:20px; vertical-align:middle; background-image:url(<{$xoops_url}>/modules/wblocks/images/fondo.gif);" >
+				<{$block.idioma_online}></td>
+			</tr>
+		</table>
+		<table border="0" width="100%">
+			<tr>
+				<td><img src="<{$xoops_url}>/modules/wblocks/images/conectados.png" alt="" title="" /></td>
+				<td><b> <{$block.idioma_conectados}></b></td>
+				<td><b><{$block.online_total}></b></td>
+			</tr>
+			<tr>
+				<td> <img src="<{$xoops_url}>/modules/wblocks/images/miembros.png" alt="" title="" /></td>
+				<td> <{$block.idioma_miembros}></td>
+				<td><{$block.online_miembros}></td>
+			</tr>
+			<tr>
+				<td> <img src="<{$xoops_url}>/modules/wblocks/images/invitados.png" alt="" title="" /></td>
+				<td> <{$block.idioma_invitados}></td>
+				<td><{$block.online_invitados}></td>
+			</tr>
+			<tr>
+				<td><img src="<{$xoops_url}>/modules/wblocks/images/buscadores.png" alt="" title="" /></td>
+				<td><{$block.idioma_bots}></td>
+				<td><{$block.online_bots}></td>
+			</tr>
+		</table>
+        
+        <br />
+        
+		<{if $block.statsreg == 1}>
+		<table border="0" width="100%" id="table9">
+			<tr>
+				<td align="center" style="height:20px; vertical-align:middle; background-image:url(<{$xoops_url}>/modules/wblocks/images/fondo.gif);" >
+				<{$block.idioma_estadisticas}></td>
+			</tr>
+			<tr>
+			<{if $block.ultimousuario == 1}>
+			<td>
+			<marquee scrollamount="1" width="100%" scrolldelay="30" truespeed=true><{$block.nuevosmiembros}></marquee>
+			</td>
+			<{/if}>
+			</tr>
+		</table>
+		<table border="0" width="100%">
+			<tr>
+				<td><img src="<{$xoops_url}>/modules/wblocks/images/registrados.gif"></td>
+				<td><b><{$block.idioma_registrados}></b></td>
+				<td><b><{$block.usuariosregistrados}></b></td>
+			</tr>
+			<tr>
+				<td><img src="<{$xoops_url}>/modules/wblocks/images/hoy.gif"></td>
+				<td><{$block.idioma_hoy}></td>
+				<td><{$block.registradoshoy}></td>
+			</tr>
+			<tr>
+				<td><img src="<{$xoops_url}>/modules/wblocks/images/ayer.gif"></td>
+				<td><{$block.idioma_ayer}></td>
+				<td><{$block.registradosayer}></td>
+			</tr>
+		</table>
+		<{/if}>
+
+		<br />
+
+		<{if $block.verconectados == 1}>
+		<table border="0" width="100%">
+			<tr>
+				<td align="center" style="height:20px; vertical-align:middle; background-image:url(<{$xoops_url}>/modules/wblocks/images/fondo.gif);" >
+				<{$block.idioma_conectados}></td>
+			</tr>
+		</table>
+		<table border="0" width="100%">
+			<tr>
+				<{$block.online_names}>
+			</tr>
+		</table>
+		<{/if}>
+		</tr>
+</table>
+<{if $block.mensajesnumero > 0}>
+<{if $block.verpopup == 1}>
+<script language="JavaScript" src="<{$xoops_url}>/modules/wblocks/include/ntxpopup.js"></script>
+<style type="text/css"> DIV.qlabel {font-size: 12pt; font-weight: bold; text-align: center; color: blue; padding: 0px;  margin: 0px;  font-family: Verdana;letter-spacing: 0.03em; border-left: 1px solid #FFFFFF;} </style>
+<script language="JavaScript">
+				var direccion1="<{$xoops_url}>"+"/viewpmsg.php";
+				var direccion2=location.href;
+				if (!(direccion1==direccion2))
+				{
+				caja = new QBoxRes(13, 13, 13, 13,"<{$xoops_url}>/modules/wblocks/images/wtc.gif", "<{$xoops_url}>/modules/wblocks/images/wtr.gif", "<{$xoops_url}>/modules/wblocks/images/wmr.gif","<{$xoops_url}>/modules/wblocks/images/wbr.gif", "<{$xoops_url}>/modules/wblocks/images/wbc.gif","<{$xoops_url}>/modules/wblocks/images/wbl.gif","<{$xoops_url}>/modules/wblocks/images/wml.gif","<{$xoops_url}>/modules/wblocks/images/wtl.gif","#FFE831", "<{$xoops_url}>/modules/wblocks/images/wbg.gif",QWndCtrl.FADEIN + QWndCtrl.HBARNOUT);
+				boton= new QButtonRes(QButton.NORMAL, 46, 29,"<{$xoops_url}>/modules/wblocks/images/btn2n.gif", "<{$xoops_url}>/modules/wblocks/images/btn2p.gif");
+				mb = new QMessageBox(null, "mb", caja, boton, "Test");
+				mb.alert('<{$block.idioma_nuevomensaje}>            ');
+				}
+</script>
+<{/if}>
+<{/if}>
+

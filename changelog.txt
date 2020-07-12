@@ -1,0 +1,17 @@
+Version 0.02
+Date Abril 06th, 2009
+
+wBlocks
+
+
+============================
+2009/04/06: Version 0.2
+============================
+
+- FIXED: Incompatibity with VideoTube 1.84 (bprado)
+
+============================
+2008/10/04: Version 0.1
+============================
+
+- Started
